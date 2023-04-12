@@ -15,8 +15,16 @@
 
 </head>
 
-<body>
-    <p>Hello</p>
+<body class="lg:flex lg:justify-between">
+    <div>
+        <div class="mt-24 ml-16 lg:ml-108">
+            <img class="w-137 h-33" src="{{ asset('https://i.ibb.co/GWNqz2n/logo.png') }}" />
+        </div>
+        {{ $slot }}
+    </div>
+    <div class="hidden lg:block">
+        <img class="w-604 h-900" src={{ asset('https://i.ibb.co/FWs4mTh/Rectangle-1.png') }} />
+    </div>
 </body>
 
 </html>
