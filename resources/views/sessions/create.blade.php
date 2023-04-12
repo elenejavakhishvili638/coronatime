@@ -5,7 +5,7 @@
                 <h1 class="text-dark-black font-black text-xl lg:text-2xl">Welcome back</h1>
                 <p class="mt-2 text-gray font-normal text-base lg:text-xl">Welcome back! Please enter your details</p>
             </div>
-            <form class="mt-24" method="POST" action="#">
+            <form class="mt-24" method="POST" action="{{ route('login.store') }}">
                 @csrf
                 <div class="flex flex-col">
                     <label for="username" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
@@ -14,6 +14,13 @@
                     <input name="username" id="username"
                         class="focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="text" placeholder='Enter unique username or email' />
+                    @error('username')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
 
                 </div>
                 <div class="flex flex-col mt-16 mb-24">
@@ -23,6 +30,13 @@
                     <input name="password" id="password"
                         class="focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="password" placeholder='Fill in password' />
+                    @error('password')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
 
                 </div>
                 <div class="flex justify-between mb-24 items-center">

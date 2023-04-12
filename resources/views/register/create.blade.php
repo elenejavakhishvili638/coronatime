@@ -14,6 +14,13 @@
                     <input name="username" id="username"
                         class=" focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="text" placeholder='Enter unique username or email' />
+                    @error('username')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
                 <div class="flex mt-16 flex-col">
                     <label for="email" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
@@ -22,6 +29,13 @@
                     <input name="email" id="email"
                         class="focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="text" placeholder='Enter your email' />
+                    @error('email')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
                 <div class="flex flex-col mt-16 mb-24">
                     <label for="password" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
@@ -30,6 +44,13 @@
                     <input name="password" id="password"
                         class=" focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="password" placeholder='Fill in password' />
+                    @error('password')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
                 <div class="flex flex-col mt-16 mb-24">
                     <label for="checkPassword" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
@@ -38,6 +59,13 @@
                     <input name="checkPassword" id="checkPassword"
                         class=" focus:shadow-custom focus:border-bl outline-0 lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-light-gray border-2"
                         type="password" placeholder='Repeat password' />
+                    @error('checkPassword')
+                        <div class="flex mt-10">
+                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
+                            <p class="text-red text-sm font-medium mt-2">
+                                {{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
                 <div class="flex">
                     <button type="submit"
