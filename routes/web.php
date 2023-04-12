@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Register\RegisterController;
+use App\Http\Controllers\Session\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('sessions.create');
-});
+Route::get('/', [AuthController::class, 'create'])->name('login.create');
 
-Route::get('register', function () {
-    return view('register.create');
-});
+Route::get('register', [RegisterController::class, 'create'])->name('register.create');
