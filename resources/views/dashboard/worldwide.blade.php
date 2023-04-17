@@ -7,7 +7,7 @@
                 <div class="flex flex-col justify-center items-center">
                     <img class="w-90 h-50" src={{ asset('images/Group-1797.png') }} />
                     <p class="text-dark-black text-base font-medium">New cases</p>
-                    <p class="font-black text-2xl text-purple">715,523</p>
+                    <p class="font-black text-2xl text-purple">{{ $sumConfirmed }}</p>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                 <div class="flex flex-col justify-center items-center">
                     <img class="w-90 h-50" src={{ asset('images/Group-1700.png') }} />
                     <p class="text-dark-black text-base font-medium mt-16 mb-16">Recovered</p>
-                    <p class="font-black text-2xl text-bggreen">82,332</p>
+                    <p class="font-black text-2xl text-bggreen">{{ $sumRecovered }}</p>
                 </div>
             </div>
             <div class="lg:w-392 lg:h-255 relative w-164 h-193 flex justify-center items-center ">
@@ -24,7 +24,7 @@
                 <div class="flex flex-col justify-center items-center">
                     <img class="w-90 h-50" src={{ asset('images/Group-1798.png') }} />
                     <p class="text-dark-black text-base font-medium mt-16 mb-16">Death</p>
-                    <p class="font-black text-2xl text-bgyellow">8,332</p>
+                    <p class="font-black text-2xl text-bgyellow">{{ $sumDeaths }}</p>
                 </div>
             </div>
 

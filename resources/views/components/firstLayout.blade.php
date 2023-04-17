@@ -12,12 +12,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
 
 <body class="lg:flex lg:justify-between">
     <div>
-        <div class="mt-24 ml-16 lg:ml-108">
+        <div class="mt-24 ml-16 lg:ml-108 flex justify-between items-center">
             <img class="w-137 h-33" src="{{ asset('https://i.ibb.co/GWNqz2n/logo.png') }}" />
             @include('_language')
         </div>

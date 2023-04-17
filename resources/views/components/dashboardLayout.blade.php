@@ -16,13 +16,11 @@
 <body class="">
     <div>
         <div class="border-b pb-24 border-gr">
-            <div class="mt-24 ml-16 lg:ml-108 flex items-center justify-between mr-32">
+            <div class="mt-24 ml-16 lg:ml-108 flex items-center justify-between mr-10">
                 <img class="w-137 h-33" src="{{ asset('https://i.ibb.co/GWNqz2n/logo.png') }}" />
                 <div class="flex items-center">
-                    <div class="w-58 mr-16">
-                        @include('_language')
-                    </div>
-                    <div class="hidden md:block pr-16 border-r border-gray">
+                    @include('_language')
+                    <div class="hidden md:block pr-16 border-r border-gray ml-16">
                         <p class="font-bold text-base">Takeshi K.</p>
                     </div>
                     <div class="ml-8">
