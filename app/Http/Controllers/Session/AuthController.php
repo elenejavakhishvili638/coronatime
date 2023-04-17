@@ -28,4 +28,11 @@ class AuthController extends Controller
 
         return back();
     }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect("/");
+    }
 }

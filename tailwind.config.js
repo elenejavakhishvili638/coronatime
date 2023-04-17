@@ -15,10 +15,11 @@ module.exports = {
       '10': '10px',
       '8':'8px',
       '0': '0px',
+      '32': '32px',
     },
     padding: {
       '24': '24px',
-
+      '16': '16px',
       '18': '18px'
     },
     extend: {
@@ -30,6 +31,9 @@ module.exports = {
         '604': '604px',
         '392': '392px',
         '20': '20px',
+        '343': '343px',
+        '90': '90px',
+        '164':'164px',
       },
       colors:{
         'dark-black': '#010414',
@@ -42,7 +46,10 @@ module.exports = {
         'gr':"#F6F6F7",
         'purple': '#2029F3',
         'bggreen': '#249E2C',
-        'bgyellow': '#EAD621'
+        'bgyellow': '#EAD621',
+        'purple': '#2029F3',
+        'bggreen': '#249E2C',
+        'bgyellow': '#EAD621',
       },
       backgroundColor:{
         'green': '#0FBA68'
@@ -53,6 +60,9 @@ module.exports = {
         '20': '20px',
         '48': '48px',
         '56': '56px',
+        '255': '255px',
+        '193': '193px',
+        '50': '50px',
       }
     },
   },

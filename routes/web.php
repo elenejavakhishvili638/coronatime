@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\Session\AuthController;
+use App\Http\Controllers\StatisticController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/', [AuthController::class, 'store'])->name('login.store');
+Route::post('logout', [AuthController::class, 'destroy'])->name('login.destroy');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register.create');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('worldwide-statistics', [StatisticController::class, 'showWorldwide'])->name('worldwide.show');
+Route::get('by-country-statistics', [StatisticController::class, 'showByCountry'])->name('country.show');
