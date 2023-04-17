@@ -19,6 +19,7 @@
     <div>
         <div class="mt-24 ml-16 lg:ml-108">
             <img class="w-137 h-33" src="{{ asset('https://i.ibb.co/GWNqz2n/logo.png') }}" />
+            @include('_language')
         </div>
         {{ $slot }}
     </div>

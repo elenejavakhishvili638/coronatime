@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\Session\AuthController;
 use App\Http\Controllers\StatisticController;
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/lang', [LanguageController::class, 'switchLang'])->name('setLanguage');
 
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/', [AuthController::class, 'store'])->name('login.store');

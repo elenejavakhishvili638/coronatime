@@ -20,7 +20,7 @@
                 <img class="w-137 h-33" src="{{ asset('https://i.ibb.co/GWNqz2n/logo.png') }}" />
                 <div class="flex items-center">
                     <div class="w-58 mr-16">
-
+                        @include('_language')
                     </div>
                     <div class="hidden md:block pr-16 border-r border-gray">
                         <p class="font-bold text-base">Takeshi K.</p>

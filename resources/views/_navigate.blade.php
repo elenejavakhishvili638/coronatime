@@ -1,5 +1,5 @@
    <div class="">
-       <h1 class="text-dark-black font font-black text-xl">Worldwide statistics</h1>
+       <h1 class="text-dark-black font font-black text-xl">{{ __('dashboard.title') }}</h1>
        <div class="mt-24 border-b border-gr mb-16 flex">
            <a href="{{ route('worldwide.show') }}"
                class="{{ Request::is('worldwide-statistics') ? 'font-bold border-dark-black pb-16 border-b-2 mr-24 text-sm' : 'mr-24 text-sm ' }}
