@@ -21,7 +21,7 @@ Route::post('/lang', [LanguageController::class, 'switchLang'])->name('setLangua
 
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/', [AuthController::class, 'store'])->name('login.store');
-Route::post('logout', [AuthController::class, 'destroy'])->name('login.destroy');
+Route::post('logout', [AuthController::class, 'logout'])->name('login.destroy');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register.create');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store');

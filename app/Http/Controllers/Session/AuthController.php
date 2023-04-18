@@ -29,7 +29,7 @@ class AuthController extends Controller
         return back();
     }
 
-    public function destroy()
+    public function logout()
     {
         auth()->logout();
 
