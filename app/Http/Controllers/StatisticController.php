@@ -17,9 +17,9 @@ class StatisticController extends Controller
 
         return view('dashboard.worldwide', [
 
-            'sumConfirmed' => rtrim(number_format($sumConfirmed, 3), '.0'),
-            'sumDeaths' =>  rtrim(number_format($sumDeaths, 3), '.0'),
-            'sumRecovered' =>  rtrim(number_format($sumRecovered, 3), '.0')
+            'sumConfirmed' => number_format($sumConfirmed, 3),
+            'sumDeaths' =>  number_format($sumDeaths, 3),
+            'sumRecovered' =>  number_format($sumRecovered, 3),
         ]);
     }
 
@@ -32,9 +32,9 @@ class StatisticController extends Controller
 
         return view('dashboard.byCountry', [
             'countries' => Country::all(),
-            'sumConfirmed' => rtrim(number_format($sumConfirmed, 3), '.0'),
-            'sumDeaths' =>  rtrim(number_format($sumDeaths, 3), '.0'),
-            'sumRecovered' =>  rtrim(number_format($sumRecovered, 3), '.0')
+            'sumConfirmed' => number_format($sumConfirmed, 3),
+            'sumDeaths' =>  number_format($sumDeaths, 3),
+            'sumRecovered' =>  number_format($sumRecovered, 3),
         ]);
     }
 }

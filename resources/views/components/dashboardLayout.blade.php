@@ -21,12 +21,12 @@
                 <div class="flex items-center">
                     @include('_language')
                     <div class="hidden md:block pr-16 border-r border-gray ml-16">
-                        <p class="font-bold text-base">Takeshi K.</p>
+                        <p class="font-bold text-base">{{ auth()->user()->username }}</p>
                     </div>
                     <div class="ml-8">
                         <a href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()" class="">
-                            Log out</a>
+                            {{ __('login.logout') }}</a>
                         <form id="logout-form" method="POST" action="/logout" class="hidden">
                             @csrf
                         </form>
