@@ -6,7 +6,7 @@
                 <div class="absolute inset-0 bg-purple opacity-5 rounded-2xl"></div>
                 <div class="flex flex-col justify-center items-center">
                     <img class="w-90 h-50" src={{ asset('images/Group-1797.png') }} />
-                    <p class="text-dark-black text-base font-medium">{{ __('dashboard.new_cases') }}</p>
+                    <p class="text-dark-black text-base font-medium mt-16 mb-16">{{ __('dashboard.new_cases') }}</p>
                     <p class="font-black text-2xl text-purple">{{ $sumConfirmed }}</p>
                 </div>
             </div>

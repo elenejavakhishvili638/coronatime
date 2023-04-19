@@ -20,13 +20,13 @@ class AuthController extends Controller
     {
         $attributes = $request->validated();
 
-        if (auth()->attempt($attributes)) {
+        if (!auth()->attempt($attributes)) {
             throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
         }
 
         session()->regenerate();
 
-        return back();
+        return redirect('worldwide-statistics');
     }
 
     public function logout()

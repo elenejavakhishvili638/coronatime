@@ -73,7 +73,7 @@
                 </div>
             </form>
             <div class="self-center mt-24">
-                <p class="text-gray text-sm">{{ __('register.question') }} <a href="{{ route('login.create') }}"
+                <p class="text-gray text-sm">{{ __('register.question') }} <a href="{{ route('login') }}"
                         class="text-black font-semibold">{{ __('register.solve') }}</a></p>
             </div>
         </div>

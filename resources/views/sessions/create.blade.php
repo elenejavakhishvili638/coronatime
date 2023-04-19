@@ -7,6 +7,15 @@
             </div>
             <form class="mt-24" method="POST" action="{{ route('login.store') }}">
                 @csrf
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="flex flex-col">
                     <label for="username" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
                         {{ __('login.username') }}
