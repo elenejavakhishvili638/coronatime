@@ -14,7 +14,7 @@ class PasswordResetController extends Controller
     {
         return view('resetPassword.request');
     }
-    public function storeEmail(EmailRequest $request)
+    public function storeEmail(EmailRequest $request): mixed
     {
         $attributes = $request->validated();
 
@@ -28,10 +28,11 @@ class PasswordResetController extends Controller
         $url = url('/reset-password/' . $token . '?email=' . $attributes['email']);
         $user->notify(new ResetPasswordNotification($url));
 
-        return  view('verifyEmail.confirmEmail');
+        return view('verifyEmail.confirmEmail');
     }
-    public function showReset()
+    public function showReset(string $token)
     {
+        return view('resetPassword.reset', ['token' => $token]);
     }
     public function update()
     {
