@@ -45,11 +45,9 @@ class PasswordResetController extends Controller
     public function update(PasswordRequest $request): mixed
     {
         $attributes = $request->validated();
-        // ddd($request);
         $status = Password::broker()->reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user, string $password) {
-                // ddd($password);
                 $user->forceFill([
                     'password' => Hash::make($password)
                 ])->setRememberToken(Str::random(60));
