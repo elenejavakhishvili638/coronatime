@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\VerifyEmailNotification;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -21,14 +22,16 @@ class RegisterController extends Controller
     {
         $attributes = $request->validated();
 
-        $user = User::create($attributes);
+        $password = $attributes['password'];
 
-        $user->notify(new VerifyEmailNotification());
+        $attributes['password'] = Hash::make($password);
+
+        $user = User::create($attributes);
 
         auth()->login($user);
 
+        $user->notify(new VerifyEmailNotification());
 
-        // return back();
         return redirect(route('verification.notice'));
     }
 }

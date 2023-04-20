@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EmailRequest;
+use App\Http\Requests\PasswordRequest;
 use App\Models\User;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class PasswordResetController extends Controller
 {
@@ -14,6 +19,7 @@ class PasswordResetController extends Controller
     {
         return view('resetPassword.request');
     }
+
     public function storeEmail(EmailRequest $request): mixed
     {
         $attributes = $request->validated();
@@ -30,11 +36,35 @@ class PasswordResetController extends Controller
 
         return view('verifyEmail.confirmEmail');
     }
+
     public function showReset(string $token)
     {
         return view('resetPassword.reset', ['token' => $token]);
     }
-    public function update()
+
+    public function update(PasswordRequest $request): mixed
     {
+        $attributes = $request->validated();
+        // ddd($request);
+        $status = Password::broker()->reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password) {
+                // ddd($password);
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+
+        if ($status === Password::PASSWORD_RESET) {
+            return view('resetPassword.update');
+        } else {
+            return back()->withErrors(['password' => trans($status)]);
+        }
     }
 }

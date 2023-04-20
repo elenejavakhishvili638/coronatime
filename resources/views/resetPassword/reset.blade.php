@@ -5,7 +5,7 @@
         <input type="hidden" name="email" value="{{ $_REQUEST['email'] }}" />
         <input type="hidden" name="token" value="{{ $token }}">
         <div>
-            {{-- @if ($errors->any())
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif --}}
+            @endif
             <h1 class="text-center text-dark-black font-black text-xl lg:text-2xl">Reset Password</h1>
             <div class="flex mt-40 flex-col lg:mt-56">
                 <label class="mb-8 text-sm font-bold text-dark-black lg:text-base">

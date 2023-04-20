@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/lang', [LanguageController::class, 'switchLang'])->name('setLanguage');
 
-Route::get('/', [AuthController::class, 'create'])->name('login');
-Route::post('/', [AuthController::class, 'login'])->name('login.store');
+Route::get('/', [AuthController::class, 'create'])->middleware('guest')->name('login');
+Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('login.store');
 Route::post('logout', [AuthController::class, 'logout'])->name('login.destroy');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register.create');

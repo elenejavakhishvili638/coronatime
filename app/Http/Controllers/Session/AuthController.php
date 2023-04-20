@@ -20,13 +20,21 @@ class AuthController extends Controller
     {
         $attributes = $request->validated();
 
-        if (!auth()->attempt($attributes)) {
-            throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
+        $remember = request()->has('remember');
+
+        if (auth()->attempt($attributes, $remember)) {
+            session()->regenerate();
+            return redirect('worldwide-statistics');
         }
 
-        session()->regenerate();
+        throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
+        // if (!auth()->attempt($attributes)) {
+        //     throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
+        // }
 
-        return redirect('worldwide-statistics');
+        // session()->regenerate();
+
+        // return redirect('worldwide-statistics');
     }
 
     public function logout()

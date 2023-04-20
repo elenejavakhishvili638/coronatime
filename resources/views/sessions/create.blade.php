@@ -50,7 +50,7 @@
                 </div>
                 <div class="flex justify-between mb-24 items-center">
                     <div class="flex justify-center items-center">
-                        <input type="checkbox" />
+                        <input type="checkbox" name="remember" />
                         <label class="font-semibold text-sm ml-8">{{ __('login.remember') }}</label>
                     </div>
                     <a href="{{ route('password.request') }}"
