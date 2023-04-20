@@ -53,7 +53,8 @@
                         <input type="checkbox" />
                         <label class="font-semibold text-sm ml-8">{{ __('login.remember') }}</label>
                     </div>
-                    <a href="#" class="font-semibold text-sm text-blue">{{ __('login.forget') }}</a>
+                    <a href="{{ route('password.request') }}"
+                        class="font-semibold text-sm text-blue">{{ __('login.forget') }}</a>
                 </div>
                 <div class="flex">
                     <button

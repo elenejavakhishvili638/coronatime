@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\Session\AuthController;
 use App\Http\Controllers\StatisticController;
@@ -32,3 +33,9 @@ Route::get('by-country-statistics', [StatisticController::class, 'showByCountry'
 
 Route::get('/email/verify', [VerificationController::class, 'show'])->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+Route::get('/forgot-password', [PasswordResetController::class, 'showRequest'])->middleware('guest')->name('password.request');
+Route::post('/forgot-password', [PasswordResetController::class, 'storeEmail'])->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [PasswordResetController::class, 'showReset'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [PasswordResetController::class, 'update'])->middleware('guest')->name('password.update');

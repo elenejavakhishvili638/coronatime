@@ -16,7 +16,6 @@ class VerificationController extends Controller
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())
             : view('verifyEmail.confirmEmail');
-        // return view('verifyEmail.confirmEmail');
     }
 
     public function verify(EmailVerificationRequest $request): RedirectResponse
