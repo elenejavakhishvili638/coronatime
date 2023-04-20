@@ -15,7 +15,7 @@
                         class="flex justify-between items-center @if ($errors->has('username')) border-red @elseif(old('username')) border-bggreen @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24 rounded-lg border-2">
                         <input name="username" id="username" type="text"
                             placeholder='{{ __('register.username_placeholder') }}'
-                            class="outline-0 w-full placeholder:gray " />
+                            class="placeholder:text-sm outline-0 w-full placeholder:gray " />
                         @if (old('username') && !$errors->has('username'))
                             <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
                         @endif
@@ -34,7 +34,8 @@
                     </label>
                     <div
                         class="flex justify-between items-center @if ($errors->has('email')) border-red @elseif(old('email')) border-bggreen @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24  rounded-lg border-2">
-                        <input name="email" id="email" class="placeholder:gray outline-0 w-full" type="text"
+                        <input name="email" id="email"
+                            class="placeholder:text-sm placeholder:gray outline-0 w-full" type="text"
                             placeholder='{{ __('register.email_placeholder') }}' />
                         @if (old('email') && !$errors->has('email'))
                             <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
@@ -54,7 +55,8 @@
                     </label>
                     <div
                         class="flex justify-between items-center @if ($errors->has('password')) border-red @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24  rounded-lg border-2">
-                        <input name="password" id="password" class="placeholder:gray outline-0 w-full" type="password"
+                        <input name="password" id="password"
+                            class="placeholder:gray outline-0 w-full placeholder:text-sm" type="password"
                             placeholder='{{ __('register.password') }}' />
                         @if (!$errors->has('password') && old('password'))
                             <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
@@ -75,8 +77,9 @@
                     <div
                         class="flex justify-between items-center @if ($errors->has('checkPassword')) border-red @elseif(old('checkPassword')) border-bggreen @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24  rounded-lg border-2">
 
-                        <input name="checkPassword" id="checkPassword" class="outline-0 w-full placeholder:gray"
-                            type="password" placeholder='{{ __('register.re_password') }}' />
+                        <input name="checkPassword" id="checkPassword"
+                            class="placeholder:text-sm outline-0 w-full placeholder:gray" type="password"
+                            placeholder='{{ __('register.re_password') }}' />
                         @if (old('checkPassword') && !$errors->has('checkPassword'))
                             <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
                         @endif

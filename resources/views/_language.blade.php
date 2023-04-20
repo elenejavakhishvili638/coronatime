@@ -1,4 +1,4 @@
-<div class="w-58 ">
+<div class="w-58 mr-18">
     <form action="{{ route('setLanguage') }}" method="POST">
         @csrf
         <select class="flex w-full outline-none" name="locale" onchange="this.form.submit()">

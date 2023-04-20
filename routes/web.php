@@ -55,8 +55,3 @@ Route::middleware('guest')->group(function () {
         Route::post('/reset-password', 'update')->name('password.update');
     });
 });
-
-
-Route::get('sss', function () {
-    return view('resetPassword.update');
-});
