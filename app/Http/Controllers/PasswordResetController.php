@@ -37,7 +37,7 @@ class PasswordResetController extends Controller
         return redirect()->route('verification.notice');
     }
 
-    public function showReset(string $token)
+    public function showReset(string $token): View
     {
         return view('resetPassword.reset', ['token' => $token]);
     }

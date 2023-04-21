@@ -26,7 +26,7 @@ class VerificationController extends Controller
         return redirect($this->redirectPath());
     }
 
-    protected function redirectPath()
+    protected function redirectPath(): string
     {
         return '/';
     }

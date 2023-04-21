@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\CovidData;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class StatisticController extends Controller
 {
-    public function showWorldwide()
+    public function showWorldwide(): View
     {
 
         $sumConfirmed = CovidData::sum('confirmed');
@@ -23,7 +24,7 @@ class StatisticController extends Controller
         ]);
     }
 
-    public function showByCountry()
+    public function showByCountry(): View
     {
 
         $sumConfirmed = CovidData::sum('confirmed');
