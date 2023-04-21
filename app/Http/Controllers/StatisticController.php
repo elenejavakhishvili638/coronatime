@@ -25,13 +25,12 @@ class StatisticController extends Controller
 
     public function showByCountry(): View
     {
-
         $sumConfirmed = CovidData::sum('confirmed');
         $sumDeaths = CovidData::sum('deaths');
         $sumRecovered = CovidData::sum('recovered');
 
         return view('dashboard.byCountry', [
-            'countries' => CovidData::all(),
+            'countries' => CovidData::query()->filter(request(['search']))->get(),
             'sumConfirmed' => number_format($sumConfirmed, 3),
             'sumDeaths' =>  number_format($sumDeaths, 3),
             'sumRecovered' =>  number_format($sumRecovered, 3),
