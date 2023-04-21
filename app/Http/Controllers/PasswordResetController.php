@@ -12,6 +12,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Http\RedirectResponse;
+
 
 class PasswordResetController extends Controller
 {
@@ -20,7 +22,7 @@ class PasswordResetController extends Controller
         return view('resetPassword.request');
     }
 
-    public function storeEmail(EmailRequest $request): mixed
+    public function storeEmail(EmailRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
 
@@ -33,8 +35,8 @@ class PasswordResetController extends Controller
         $token = app('auth.password.broker')->createToken($user);
         $url = url('/reset-password/' . $token . '?email=' . $attributes['email']);
         $user->notify(new ResetPasswordNotification($url));
-        // change route
-        return redirect()->route('verification.notice');
+
+        return redirect()->route('verifyEmail.confirmation');
     }
 
     public function showReset(string $token): View

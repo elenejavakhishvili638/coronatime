@@ -12,5 +12,6 @@ return [
     'new_password_placeholder' => 'შეიყვანეთ ახალი პაროლი',
     'repeat_password' => 'გაიმეორეთ პაროლი',
     'repeat_password_placeholder' => 'გაიმეორეთ პაროლი',
-    'save_changes' => 'შეინახეთ ცვლილებები'
+    'save_changes' => 'შეინახეთ ცვლილებები',
+    'email_success' => 'Your account is confirmed, you can sign in'
 ];

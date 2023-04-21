@@ -33,7 +33,6 @@ class FetchData extends Command
 
         foreach ($countries as $country) {
             $statistics = Http::post('https://devtest.ge/get-country-statistics', [
-                // 'name' => $country['name'],
                 'code' => $country['code']
             ])->json();
 
@@ -44,33 +43,6 @@ class FetchData extends Command
                 'recovered' => $statistics['recovered']
             ]);
         }
-        // $countries = Http::get('https://devtest.ge/countries')->json();
-
-        // foreach ($countries as $country) {
-
-        //     Country::updateOrCreate(['code' => $country['code']], [
-        //         'name' => $country['name'],
-        //         'code' => $country['code']
-        //     ]);
-        // }
-
-        // $countries = Country::all();
-
-        // foreach ($countries as $country) {
-        //     $response = Http::post('https://devtest.ge/get-country-statistics', [
-        //         'code' => $country->code
-        //     ])->json();
-
-        //     CovidData::updateOrCreate([
-        //         'country_id' =>  $country->id,
-        //         'code' => $response['code'],
-        //         'country' =>  $response['country'],
-        //         'confirmed' => $response['confirmed'],
-        //         'critical' => $response['critical'],
-        //         'recovered' => $response['recovered'],
-        //         'deaths' => $response['deaths'],
-        //     ]);
-        // }
 
         $this->info('COVID data fetched and stored in database.');
     }

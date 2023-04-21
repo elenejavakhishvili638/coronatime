@@ -23,8 +23,7 @@ class VerificationController extends Controller
         $request->fulfill();
 
         auth()->logout();
-        // put here new blade
-        return redirect($this->redirectPath());
+        return redirect()->route('verifyEmail.successful');
     }
 
     protected function redirectPath(): string
