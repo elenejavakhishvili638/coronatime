@@ -34,7 +34,7 @@ class PasswordResetController extends Controller
         $url = url('/reset-password/' . $token . '?email=' . $attributes['email']);
         $user->notify(new ResetPasswordNotification($url));
 
-        return view('verifyEmail.confirmEmail');
+        return redirect()->route('verification.notice');
     }
 
     public function showReset(string $token)
