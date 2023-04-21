@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class CovidData extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    use HasTranslations;
 
-    public function country()
-    {
-        return $this->belongsTo(Country::class, 'country_id');
-    }
+    public $translatable = ['name'];
+
+    protected $guarded = ['id'];
 }

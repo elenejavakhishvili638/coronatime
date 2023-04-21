@@ -85,13 +85,13 @@
                         <p class="break-words">{{ $country->name }}</p>
                     </div>
                     <div class="w-65">
-                        <p class="break-words">{{ number_format($country->covidData->confirmed, 3) }}</p>
+                        <p class="break-words">{{ number_format($country->confirmed, 3) }}</p>
                     </div>
                     <div class="w-65">
-                        <p class="break-words">{{ number_format($country->covidData->deaths, 3) }}</p>
+                        <p class="break-words">{{ number_format($country->deaths, 3) }}</p>
                     </div>
                     <div class="w-65">
-                        <p class="break-words">{{ number_format($country->covidData->recovered, 3) }}</p>
+                        <p class="break-words">{{ number_format($country->recovered, 3) }}</p>
                     </div>
                 </div>
             @endforeach

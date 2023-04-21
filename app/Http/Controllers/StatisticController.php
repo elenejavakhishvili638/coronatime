@@ -17,7 +17,6 @@ class StatisticController extends Controller
         $sumRecovered = CovidData::sum('recovered');
 
         return view('dashboard.worldwide', [
-
             'sumConfirmed' => number_format($sumConfirmed, 3),
             'sumDeaths' =>  number_format($sumDeaths, 3),
             'sumRecovered' =>  number_format($sumRecovered, 3),
@@ -32,7 +31,7 @@ class StatisticController extends Controller
         $sumRecovered = CovidData::sum('recovered');
 
         return view('dashboard.byCountry', [
-            'countries' => Country::all(),
+            'countries' => CovidData::all(),
             'sumConfirmed' => number_format($sumConfirmed, 3),
             'sumDeaths' =>  number_format($sumDeaths, 3),
             'sumRecovered' =>  number_format($sumRecovered, 3),

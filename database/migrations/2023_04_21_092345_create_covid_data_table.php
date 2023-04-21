@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('covid_data', function (Blueprint $table) {
             $table->id();
-            $table->string('country');
-            $table->string('code');
-            $table->foreignId('country_id')->constrained();
+            $table->json('name');
             $table->integer('confirmed');
-            $table->integer('recovered');
-            $table->integer('critical');
             $table->integer('deaths');
+            $table->integer('recovered');
             $table->timestamps();
         });
     }
