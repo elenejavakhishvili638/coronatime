@@ -30,7 +30,7 @@ class StatisticController extends Controller
         $sumRecovered = CovidData::sum('recovered');
 
         return view('dashboard.byCountry', [
-            'countries' => CovidData::query()->filter(request(['search']))->get(),
+            'countries' => CovidData::query()->filter(request(['search', 'sort_by', 'sort_order']))->get(),
             'sumConfirmed' => number_format($sumConfirmed, 3),
             'sumDeaths' =>  number_format($sumDeaths, 3),
             'sumRecovered' =>  number_format($sumRecovered, 3),

@@ -5,7 +5,7 @@
                 <h1 class="text-dark-black font-bold text-xl lg:text-2xl">{{ __('register.title') }}</h1>
                 <p class="mt-8 text-gray font-normal text-base lg:text-xl">{{ __('register.body') }}</p>
             </div>
-            <form method="POST" action="#" class="mt-24">
+            <form method="POST" action="{{ route('register.store') }}" class="mt-24">
                 @csrf
                 <div class="flex flex-col">
                     <label for="username" class="mb-8 text-sm font-bold text-dark-black lg:text-base">

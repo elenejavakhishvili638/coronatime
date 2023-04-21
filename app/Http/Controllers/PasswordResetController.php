@@ -33,7 +33,7 @@ class PasswordResetController extends Controller
         $token = app('auth.password.broker')->createToken($user);
         $url = url('/reset-password/' . $token . '?email=' . $attributes['email']);
         $user->notify(new ResetPasswordNotification($url));
-
+        // change route
         return redirect()->route('verification.notice');
     }
 
