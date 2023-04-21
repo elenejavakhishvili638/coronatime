@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Register;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -20,11 +22,16 @@ class RegisterController extends Controller
     {
         $attributes = $request->validated();
 
-        $user = User::create($attributes);
+        $password = $attributes['password'];
 
+        $attributes['password'] = Hash::make($password);
+
+        $user = User::create($attributes);
 
         auth()->login($user);
 
-        return back();
+        $user->notify(new VerifyEmailNotification());
+
+        return redirect(route('verification.notice'));
     }
 }
