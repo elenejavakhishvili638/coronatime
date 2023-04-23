@@ -45,37 +45,5 @@ class CovidData extends Model
         })->when($sortBy === 'deaths', function ($query) use ($sortOrder) {
             $query->orderBy('deaths', $sortOrder);
         });
-        // if ($sortBy === 'name') {
-        //     $jsonPath = $lang === 'ka' ? '$.ka' : '$.en';
-        //     $query->orderByRaw("JSON_UNQUOTE(JSON_EXTRACT(name, ?)) $sortOrder", [$jsonPath]);
-        // } elseif ($sortBy === 'confirmed') {
-        //     $query->orderBy('confirmed', $sortOrder);
-        // } elseif ($sortBy === 'recovered') {
-        //     $query->orderBy('recovered', $sortOrder);
-        // } elseif ($sortBy === 'deaths') {
-        //     $query->orderBy('deaths', $sortOrder);
-        // }
     }
 }
-
-
-    // $sortBy = request('sort_by', 'name');
-            // $sortOrder = request('sort_order', 'asc');
-            // if ($sortBy === 'name') {
-            //     $jsonPath = $lang === 'ka' ? '$.ka' : '$.en';
-            //     $query->orderByRaw("JSON_UNQUOTE(JSON_EXTRACT(name, ?)) $sortOrder", [$jsonPath]);
-            // } elseif ($sortBy === 'confirmed') {
-            //     $query->orderBy('confirmed', $sortOrder);
-            // }
-
-
-                    // if ($filters['search'] ?? false) {
-        // $search = request('search');
-        // $lang = session('locale', 'en');
-
-        // if ($lang === 'ka') {
-        //     $query->whereRaw("JSON_UNQUOTE(JSON_EXTRACT(name, '$.ka')) LIKE ?", ['%' . $search . '%']);
-        // } else {
-        //     $query->whereRaw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(name, '$.en'))) LIKE ?", ['%' . strtolower($search) . '%']);
-        // }
-        // }
