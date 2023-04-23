@@ -26,7 +26,7 @@ class LoginRequest extends FormRequest
             'username' => ['required', function ($attribute, $value, $fail) {
                 $user = User::where('email', $value)->orWhere('username', $value)->first();
                 if (!$user) {
-                    return $fail('The ' . $attribute . ' is invalid.');
+                    return $fail(__('validation.custom.invalid_username', ['attribute' => __('validation.attributes.username')]));
                 }
             }],
             'password' => ['required']

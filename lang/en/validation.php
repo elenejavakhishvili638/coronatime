@@ -13,6 +13,7 @@ return [
     |
     */
 
+
     'accepted' => 'The :attribute field must be accepted.',
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',
     'active_url' => 'The :attribute field must be a valid URL.',
@@ -161,11 +162,15 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
+    'attributes' => [
+        'username' => 'username',
+        'password' => 'password',
+        'email' => 'email',
+        'checkPassword' => 'password'
+    ],
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        'invalid_username' => 'The :attribute is invalid.',
     ],
 
     /*
@@ -178,7 +183,5 @@ return [
     | of "email". This simply helps us make our message more expressive.
     |
     */
-
-    'attributes' => [],
 
 ];
