@@ -11,9 +11,9 @@
             <input type="hidden" name="sort_order" value="{{ request('sort_order') }}" />
         </form>
     </div>
-    <div class="mt-24 flex flex-col lg:mr-108 lg:ml-108 lg:h-603 lg:overflow-y-scroll mb-56 lg:shadow-statistics">
+    <div class=" mt-24 flex flex-col lg:mr-108 lg:ml-108 lg:h-603  mb-56 lg:shadow-statistics">
         <div class="w-full">
-            <div class="lg:rounded-t-lg text-xs font-semibold flex justify-between p-18 items-center  gap-4 bg-gr">
+            <div class=" lg:rounded-t-lg text-xs font-semibold flex justify-between p-18 items-center  gap-4 bg-gr">
 
                 <div class="flex items-center">
                     <p class="mr-3 break-words max-w-65">{{ __('dashboard.location') }}</p>
@@ -112,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full ">
+        <div class="w-full lg:overflow-y-scroll  scrollbar-custom">
             <div class="mr-18 flex justify-between text-xs items-center pt-16 pb-16 border-b ml-18 border-gr">
                 <div class="w-65">
                     <p class="break-words">{{ __('dashboard.worldwide') }}</p>
