@@ -12,5 +12,6 @@ return [
     'new_password_placeholder' => 'Enter new password',
     'repeat_password' => 'Repeat password',
     'repeat_password_placeholder' => 'Repeat password',
-    'save_changes' => 'SAVE CHANGES'
+    'save_changes' => 'SAVE CHANGES',
+    'email_success' => 'Your account is confirmed, you can sign in'
 ];

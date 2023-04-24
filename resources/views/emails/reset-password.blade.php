@@ -71,8 +71,8 @@
                                                                             <a href="{{ $url }}"
                                                                                 class="button button-primary"
                                                                                 target="_blank" rel="noopener"
-                                                                                style=" position: relative; -webkit-text-size-adjust: none; border-radius: 8px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #0FBA68; border-bottom: 19px solid #0FBA68; border-left: 137px solid #0FBA68; border-right: 137px solid #0FBA68; border-top: 19px solid #0FBA68;">RECOVER
-                                                                                PASSWORD</a>
+                                                                                style=" position: relative; -webkit-text-size-adjust: none; border-radius: 8px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #0FBA68; border-bottom: 19px solid #0FBA68; border-left: 137px solid #0FBA68; border-right: 137px solid #0FBA68; border-top: 19px solid #0FBA68;">Recover
+                                                                                password</a>
                                                                         </td>
                                                                     </tr>
                                                                 </table>

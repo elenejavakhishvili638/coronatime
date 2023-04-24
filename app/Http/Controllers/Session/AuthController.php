@@ -30,7 +30,7 @@ class AuthController extends Controller
         throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
     }
 
-    public function logout()
+    public function logout(): RedirectResponse
     {
         auth()->logout();
 

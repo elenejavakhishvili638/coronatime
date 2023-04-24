@@ -55,3 +55,6 @@ Route::middleware('guest')->group(function () {
         Route::post('/reset-password', 'update')->name('password.update');
     });
 });
+
+Route::view('/verify-email/confirmation', 'verifyEmail.confirmEmail')->name('verifyEmail.confirmation');
+Route::view('/verify-email/success', 'verifyEmail.success')->name('verifyEmail.successful');

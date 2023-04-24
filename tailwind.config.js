@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+ 
   theme: {
     margin:{
       '3': '3px',
@@ -29,6 +31,7 @@ module.exports = {
       '252': '252px',
       '148': '148px',
       '240': '240px',
+      '1.5': '1.5px'
     },
     padding: {
       '24': '24px',
@@ -59,7 +62,8 @@ module.exports = {
         '239': '239px',
         '500': '500px',
         '186': '186px',
-        '65': '65px'
+        '65': '65px',
+        '6': '6px'
       },
       colors:{
         'dark-black': '#010414',
@@ -73,6 +77,7 @@ module.exports = {
         'purple': '#2029F3',
         'bggreen': '#249E2C',
         'bgyellow': '#EAD621',
+
       },
       backgroundColor:{
         'green': '#0FBA68'
@@ -90,6 +95,21 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    // require('tailwind-scrollbar')({ nocompatible: true }),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-custom::-webkit-scrollbar': {
+          width: '6px',
+          height: '56px',
+        },
+        '.scrollbar-custom::-webkit-scrollbar-thumb': {
+          backgroundColor: '#808189',
+          borderRadius: '4px',
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 }
 

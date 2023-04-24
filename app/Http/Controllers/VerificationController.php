@@ -23,10 +23,10 @@ class VerificationController extends Controller
         $request->fulfill();
 
         auth()->logout();
-        return redirect($this->redirectPath());
+        return redirect()->route('verifyEmail.successful');
     }
 
-    protected function redirectPath()
+    protected function redirectPath(): string
     {
         return '/';
     }

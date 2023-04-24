@@ -7,46 +7,11 @@
             </div>
             <form class="mt-24" method="POST" action="{{ route('login.store') }}">
                 @csrf
-                <div class="flex flex-col">
-                    <label for="username" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
-                        {{ __('login.username') }}
-                    </label>
-                    <div
-                        class="flex justify-between items-center @if ($errors->has('username')) border-red @elseif(old('username')) border-bggreen @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-2">
-                        <input name="username" id="username" class="placeholder:text-sm outline-0 w-full"
-                            type="text" placeholder="{{ __('login.username_placeholder') }}" />
-                        @if (!$errors->has('username') && old('username'))
-                            <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
-                        @endif
-                    </div>
-                    @error('username')
-                        <div class="flex mt-10">
-                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
-                            <p class="text-red text-sm font-medium mt-2">
-                                {{ $message }}</p>
-                        </div>
-                    @enderror
-
-                </div>
-                <div class="flex flex-col mt-16 mb-24">
-                    <label for="password" class="mb-8 text-sm font-bold text-dark-black lg:text-base">
-                        {{ __('login.password') }}
-                    </label>
-                    <div
-                        class="flex justify-between items-center @if ($errors->has('password')) border-red @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24 placeholder:gray rounded-lg border-2">
-                        <input name="password" id="password" class="placeholder:text-sm outline-0 w-full"
-                            type="password" placeholder="{{ __('login.password_placeholder') }}" />
-                    </div>
-                    @error('password')
-                        <div class="flex mt-10">
-                            <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
-                            <p class="text-red text-sm font-medium mt-2">
-                                {{ $message }}</p>
-                        </div>
-                    @enderror
-
-                </div>
-                <div class="flex justify-between mb-24 items-center">
+                <x-form.input name="username" label="{{ __('login.username') }}"
+                    placeholder="{{ __('login.username_placeholder') }}" />
+                <x-form.input type="password" name="password" label="{{ __('login.password') }}"
+                    placeholder="{{ __('login.password_placeholder') }}" />
+                <div class="flex justify-between mt-24 mb-24 items-center">
                     <div class="flex justify-center items-center">
                         <input type="checkbox" name="remember" />
                         <label class="font-semibold text-sm ml-8">{{ __('login.remember') }}</label>

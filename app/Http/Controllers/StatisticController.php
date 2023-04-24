@@ -2,39 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+
 use App\Models\CovidData;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class StatisticController extends Controller
 {
-    public function showWorldwide()
+    public function showWorldwide(): View
     {
-
-        $sumConfirmed = CovidData::sum('confirmed');
-        $sumDeaths = CovidData::sum('deaths');
-        $sumRecovered = CovidData::sum('recovered');
-
-        return view('dashboard.worldwide', [
-
-            'sumConfirmed' => number_format($sumConfirmed, 3),
-            'sumDeaths' =>  number_format($sumDeaths, 3),
-            'sumRecovered' =>  number_format($sumRecovered, 3),
-        ]);
+        return view('dashboard.worldwide', $this->getSumData());
     }
 
-    public function showByCountry()
+    public function showByCountry(): View
     {
+        return view('dashboard.byCountry', array_merge([
+            'countries' => CovidData::query()->filter(request(['search', 'sort_by', 'sort_order']))->get(),
+        ], $this->getSumData()));
+    }
 
+
+    private function getSumData(): array
+    {
         $sumConfirmed = CovidData::sum('confirmed');
         $sumDeaths = CovidData::sum('deaths');
         $sumRecovered = CovidData::sum('recovered');
 
-        return view('dashboard.byCountry', [
-            'countries' => Country::all(),
+        return [
             'sumConfirmed' => number_format($sumConfirmed, 3),
-            'sumDeaths' =>  number_format($sumDeaths, 3),
-            'sumRecovered' =>  number_format($sumRecovered, 3),
-        ]);
+            'sumDeaths' => number_format($sumDeaths, 3),
+            'sumRecovered' => number_format($sumRecovered, 3),
+        ];
     }
 }

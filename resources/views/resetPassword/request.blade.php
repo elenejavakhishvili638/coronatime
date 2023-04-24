@@ -29,7 +29,7 @@
         </div>
         <div class="flex mb-40 mt-337 lg:mt-56">
             <button
-                class="text-white w-full rounded-lg text-sm font-bold bg-green h-48 lg:h-56 lg:text-base">{{ __('verification.sign_up') }}</button>
+                class="text-white w-full rounded-lg text-sm font-bold bg-green h-48 lg:h-56 lg:text-base">{{ __('verification.reset_password') }}</button>
         </div>
     </form>
 </x-notificationLayout>
