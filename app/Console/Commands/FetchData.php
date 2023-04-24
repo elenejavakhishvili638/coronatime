@@ -36,12 +36,15 @@ class FetchData extends Command
                 'code' => $country['code']
             ])->json();
 
-            CovidData::updateOrCreate([
-                'name' => $country['name'],
-                'confirmed' => $statistics['confirmed'],
-                'deaths' => $statistics['deaths'],
-                'recovered' => $statistics['recovered']
-            ]);
+            CovidData::updateOrCreate(
+                ['code' => $country['code']],
+                [
+                    'name' => $country['name'],
+                    'confirmed' => $statistics['confirmed'],
+                    'deaths' => $statistics['deaths'],
+                    'recovered' => $statistics['recovered']
+                ]
+            );
         }
 
         $this->info('COVID data fetched and stored in database.');

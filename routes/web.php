@@ -25,12 +25,14 @@ Route::post('/lang', [LanguageController::class, 'switchLang'])->name('setLangua
 Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'create')->middleware('guest')->name('login');
     Route::post('/', 'login')->middleware('guest')->name('login.store');
-    Route::post('logout', 'logout')->name('login.destroy');
+    Route::post('logout', 'logout')->middleware('auth')->name('login.destroy');
 });
 
-Route::controller(RegisterController::class)->group(function () {
-    Route::get('register',  'create')->name('register.create');
-    Route::post('register',  'store')->name('register.store');
+Route::middleware('guest')->group(function () {
+    Route::controller(RegisterController::class)->group(function () {
+        Route::get('register',  'create')->name('register.create');
+        Route::post('register',  'store')->name('register.store');
+    });
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
