@@ -17,6 +17,7 @@ return [
     'email' => ':attribute ველი უნდა იყოს ვალიდური იმეილის მისამართი.',
     'same' => ':attribute ველი უნდა ემთხვეოდეს :other ზედა ველს.',
     'confirmed' => ':attribute ველი არ ემთხვევა ველს.',
+    'unique' => ':attribute ეს ველი უკვე გამოყენებულია.',
 
     'custom' => [
         'invalid_username' => ':attribute ველი არასწორია.',

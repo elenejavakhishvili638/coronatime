@@ -14,102 +14,10 @@
     <div class=" mt-24 flex flex-col lg:mr-108 lg:ml-108 lg:h-603  mb-56 lg:shadow-statistics">
         <div class="w-full">
             <div class=" lg:rounded-t-lg text-xs font-semibold flex justify-between p-18 items-center  gap-4 bg-gr">
-
-                <div class="flex items-center">
-                    <p class="mr-3 break-words max-w-65">{{ __('dashboard.location') }}</p>
-                    <div class="flex flex-col ml-3">
-                        <!-- Up icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'name', 'sort_order' => 'asc']) }}">
-
-                            <svg class="mb-1.5" width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z"
-                                    fill="{{ request('sort_by') === 'name' && request('sort_order') === 'asc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                        <!-- Down icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'name', 'sort_order' => 'desc']) }}">
-
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 5.5L0 0.5H10L5 5.5Z"
-                                    fill="{{ request('sort_by') === 'name' && request('sort_order') === 'desc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <p class="mr-5 break-words max-w-65">{{ __('dashboard.new_cases') }}</p>
-                    <div class="flex flex-col ml-3">
-                        <!-- Up icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'confirmed', 'sort_order' => 'desc']) }}">
-                            <svg class="mb-1.5" width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z"
-                                    fill="{{ request('sort_by') === 'confirmed' && request('sort_order') === 'desc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                        <!-- Down icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'confirmed', 'sort_order' => 'asc']) }}">
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 5.5L0 0.5H10L5 5.5Z"
-                                    fill="{{ request('sort_by') === 'confirmed' && request('sort_order') === 'asc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <p class="break-words max-w-65">{{ __('dashboard.deaths') }}</p>
-                    <div class="flex flex-col ml-3">
-                        <!-- Up icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'deaths', 'sort_order' => 'desc']) }}">
-                            <svg class="mb-1.5" width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z"
-                                    fill="{{ request('sort_by') === 'deaths' && request('sort_order') === 'desc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                        <!-- Down icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'deaths', 'sort_order' => 'asc']) }}">
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 5.5L0 0.5H10L5 5.5Z"
-                                    fill="{{ request('sort_by') === 'deaths' && request('sort_order') === 'asc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <p class="mr-5 break-words max-w-65">{{ __('dashboard.recovered') }}</p>
-                    <div class="flex flex-col ml-3">
-                        <!-- Up icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'recovered', 'sort_order' => 'desc']) }}">
-                            <svg class="mb-1.5" width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z"
-                                    fill="{{ request('sort_by') === 'recovered' && request('sort_order') === 'desc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                        <!-- Down icon -->
-                        <a
-                            href="{{ route('country.show', ['search' => request('search'), 'sort_by' => 'recovered', 'sort_order' => 'asc']) }}">
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 5.5L0 0.5H10L5 5.5Z"
-                                    fill="{{ request('sort_by') === 'recovered' && request('sort_order') === 'asc' ? '#010414' : '#BFC0C4' }}" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                <x-property name="name" property="{{ __('dashboard.location') }}" asc="asc" desc="desc" />
+                <x-property name="confirmed" property="{{ __('dashboard.new_cases') }}" asc="desc" desc="asc" />
+                <x-property name="deaths" property="{{ __('dashboard.deaths') }}" asc="desc" desc="asc" />
+                <x-property name="recovered" property="{{ __('dashboard.recovered') }}" asc="desc" desc="asc" />
             </div>
         </div>
         <div class="w-full lg:overflow-y-scroll  scrollbar-custom">
