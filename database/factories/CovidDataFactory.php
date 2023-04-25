@@ -22,6 +22,7 @@ class CovidDataFactory extends Factory
                 'en' => $faker->word(),
                 'ka' => $faker->realText(10),
             ],
+            'code' => $faker->word(),
             'confirmed' => $this->faker->numberBetween(0, 100000),
             'deaths' => $this->faker->numberBetween(0, 5000),
             'recovered' => $this->faker->numberBetween(0, 90000),
