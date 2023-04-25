@@ -61,10 +61,10 @@ class PasswordResetController extends Controller
         );
 
 
-        if ($status === Password::PASSWORD_RESET) {
-            return view('resetPassword.update');
-        } else {
-            return back()->withErrors(['password' => trans($status)]);
-        }
+        return view('resetPassword.update');
+        // if ($status === Password::PASSWORD_RESET) {
+        // } else {
+        //     return back()->withErrors(['password' => trans($status)]);
+        // }
     }
 }

@@ -20,7 +20,7 @@ class DashboardTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
         $response = $this->get('worldwide-statistics');
-        $response->assertStatus(200);
+        $response->assertSuccessful();
         $response->assertViewIs('dashboard.worldwide');
         $response->assertViewHasAll(['sumConfirmed', 'sumDeaths', 'sumRecovered']);
     }
@@ -30,7 +30,7 @@ class DashboardTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
         $response = $this->get('by-country-statistics');
-        $response->assertStatus(200);
+        $response->assertSuccessful();
         $response->assertViewIs('dashboard.byCountry');
         $response->assertViewHasAll(['sumConfirmed', 'sumDeaths', 'sumRecovered', 'countries']);
     }
