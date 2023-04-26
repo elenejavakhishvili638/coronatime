@@ -41,7 +41,6 @@ class PasswordResetController extends Controller
 
     public function showReset(Request $request, string $token): View
     {
-        // return view('resetPassword.reset', ['token' => $token]);
         $email = $request->query('email');
         return view('resetPassword.reset', ['token' => $token, 'email' => $email]);
     }
@@ -64,9 +63,5 @@ class PasswordResetController extends Controller
 
 
         return view('resetPassword.update');
-        // if ($status === Password::PASSWORD_RESET) {
-        // } else {
-        //     return back()->withErrors(['password' => trans($status)]);
-        // }
     }
 }

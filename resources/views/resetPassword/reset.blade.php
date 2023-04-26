@@ -2,7 +2,7 @@
     <form method="POST" action="{{ route('password.update') }}"
         class=" flex justify-between mt-40 lg:mt-108 flex-col ml-16 mr-16 lg:w-392 ">
         @csrf
-        <input type="hidden" name="email" value="{{ $_REQUEST['email'] }}" />
+        <input type="hidden" name="email" value="{{ $email }}" />
         <input type="hidden" name="token" value="{{ $token }}">
         <div>
             <h1 class="text-center text-dark-black font-bold text-xl lg:text-2xl">
@@ -11,15 +11,15 @@
                 <label class="mb-8 text-sm font-bold text-dark-black lg:text-base">
                     {{ __('verification.new_password') }}
                 </label>
-                <input class="placeholder:gray outline-0 w-full" type="password"
-                    placeholder="{{ __('verification.new_password_placeholder') }}" name="password" />
-                {{-- <div
-                    class="flex justify-between items-center @if ($errors->has('password')) border-red @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24  rounded-lg border-2">
+                <div
+                    class="flex justify-between items-center lg:h-56 py-18 pl-24  rounded-lg border-2 focus-within:shadow-custom focus-within:border-bl {{ $errors->has('password') ? 'border-red' : (old('password') ? 'border-bggreen' : 'border-light-gray') }}">
+                    <input class="placeholder:gray outline-0 w-full" type="password"
+                        placeholder="{{ __('verification.new_password_placeholder') }}" name="password" />
 
-                    @if (!$errors->has('password') && old('password'))
-                        <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
-                    @endif
-                </div> --}}
+                    {!! !$errors->has('password') && old('password')
+                        ? '<img class="mr-18" src="' . asset('images/vector-green.png') . '" />'
+                        : '' !!}
+                </div>
                 @error('password')
                     <div class="flex mt-10">
                         <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
@@ -32,15 +32,16 @@
                 <label class="mb-8 text-sm font-bold text-dark-black lg:text-base">
                     {{ __('verification.repeat_password') }}
                 </label>
-                <input class="outline-0 w-full placeholder:gray" type="password"
-                    placeholder="{{ __('verification.repeat_password_placeholder') }}" name="password_confirmation" />
-                {{-- <div
-                    class="flex justify-between items-center @if ($errors->has('checkPassword')) border-red @elseif(old('checkPassword')) border-bggreen @else border-light-gray @endif focus-within:shadow-custom focus-within:border-bl lg:h-56 py-18 pl-24  rounded-lg border-2">
-                    @if (old('password_confirmation') && !$errors->has('password_confirmation'))
-                        <img class="mr-18" src="{{ asset('images/vector-green.png') }}" />
-                    @endif
-                </div> --}}
-                @error('password_confirmation')
+                <div
+                    class="flex justify-between items-center lg:h-56 py-18 pl-24  rounded-lg border-2 focus-within:shadow-custom focus-within:border-bl {{ $errors->has('password') ? 'border-red' : (old('password') ? 'border-bggreen' : 'border-light-gray') }}">
+                    <input class="outline-0 w-full placeholder:gray" type="password"
+                        placeholder="{{ __('verification.repeat_password_placeholder') }}"
+                        name="password_confirmation" />
+                    {!! !$errors->has('password') && old('password')
+                        ? '<img class="mr-18" src="' . asset('images/vector-green.png') . '" />'
+                        : '' !!}
+                </div>
+                @error('password')
                     <div class="flex mt-10">
                         <img class="w-20 h-20 mr-10" src="{{ asset('images/Vector.jpg') }}" />
                         <p class="text-red text-sm font-medium mt-2">
