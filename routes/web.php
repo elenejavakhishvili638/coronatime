@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PasswordResetController;
-use App\Http\Controllers\Register\RegisterController;
+use App\Http\Controllers\Register\RegistrationController;
 use App\Http\Controllers\Session\AuthController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\VerificationController;
@@ -29,7 +29,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::controller(RegisterController::class)->group(function () {
+    Route::controller(RegistrationController::class)->group(function () {
         Route::get('register',  'create')->name('register.create');
         Route::post('register',  'store')->name('register.store');
     });

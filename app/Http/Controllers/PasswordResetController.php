@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EmailRequest;
-use App\Http\Requests\PasswordRequest;
+use App\Http\Requests\ResetPasswordEmailRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Auth\Events\PasswordReset;
@@ -22,7 +22,7 @@ class PasswordResetController extends Controller
         return view('resetPassword.request');
     }
 
-    public function storeEmail(EmailRequest $request): RedirectResponse
+    public function storeEmail(ResetPasswordEmailRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
 
@@ -45,7 +45,7 @@ class PasswordResetController extends Controller
         return view('resetPassword.reset', ['token' => $token, 'email' => $email]);
     }
 
-    public function update(PasswordRequest $request): mixed
+    public function update(ResetPasswordRequest $request): mixed
     {
         $attributes = $request->validated();
         $status = Password::broker()->reset(
