@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class VerificationController extends Controller
 {
     protected $redirectTo = '/';
-    public function show(Request $request): View
+    public function show(Request $request): mixed
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())

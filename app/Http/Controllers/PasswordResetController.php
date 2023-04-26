@@ -39,9 +39,11 @@ class PasswordResetController extends Controller
         return redirect()->route('verifyEmail.confirmation');
     }
 
-    public function showReset(string $token): View
+    public function showReset(Request $request, string $token): View
     {
-        return view('resetPassword.reset', ['token' => $token]);
+        // return view('resetPassword.reset', ['token' => $token]);
+        $email = $request->query('email');
+        return view('resetPassword.reset', ['token' => $token, 'email' => $email]);
     }
 
     public function update(PasswordRequest $request): mixed
