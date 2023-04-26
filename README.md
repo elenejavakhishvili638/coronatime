@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Coronatime
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This Laravel project provides an interactive COVID-19 dashboard for users to view global and country-specific statistics. The dashboard requires user authentication, and users have the option to log in using either their email or username. New users can create an account by providing a username, email, and password. Email verification is required before users can log in. Users can reset their passwords through email verification. Upon login, users can view global COVID-19 statistics, including total new cases, deaths, and recoveries. They also can navigate to a separate page to view COVID-19 statistics by country. The data can be searched, sorted alphabetically, or sorted by the number of new cases, recoveries, or deaths.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of contents
+- [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Migrations](#migrations)
+- [Development](#development)
+- [Database diagram](#database-diagram)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prerequisites
+- PHP@7.2 and up
+- MYSQL@8 and up
+- npm@6 and up
+- composer@2 and up
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech stack
+- [Laravel@6.x](https://laravel.com/docs/6.x) - back-end framework
+- [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
 
-## Learning Laravel
+## Getting started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1.First of all, you need to clone repository    from GitHub:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+  https://github.com/RedberryInternship/elene-javakhishvili-corona-time.git
+```
+2.Install dependencies:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+composer install
+```
+3.After you have installed all the PHP dependencies, it's time to install all the JS dependencies:
 
-## Laravel Sponsors
+```bash
+npm install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+and also:
 
-### Premium Partners
+```bash
+npm run dev
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+4.Now we need to set our env file. Go to the root of your project and execute this command.
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Update the .env file with your database credentials:
 
-## Code of Conduct
+MYSQL:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+>DB_CONNECTION=mysql
 
-## Security Vulnerabilities
+>DB_HOST=127.0.0.1
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+>DB_PORT=3306
 
-## License
+>DB_DATABASE=*****
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+>DB_USERNAME=*****
+
+>DB_PASSWORD=*****
+
+Gmail SMTP:
+
+>MAIL_DRIVER=smtp
+
+>MAIL_HOST=smtp.gmail.com
+
+>MAIL_PORT=465
+
+>MAIL_USERNAME=*****
+
+>MAIL_PASSWORD=*****
+
+>MAIL_ENCRYPTION=ssl
+
+>MAIL_FROM_NAME=*****
+
+5.Generate a new application key
+
+```bash
+php artisan key:generate
+```
+
+## Migrations
+
+if you've completed getting started section, then migrating database if fairly simple process, just execute:
+
+```bash
+php artisan migrate
+```
+
+## Development
+
+You can run Laravel's built-in development server by executing:
+
+```bash
+php artisan  serve
+```
+```bash
+npm run  dev
+```
+
+## Database diagram
+
+![diagram](https://i.ibb.co/4ZS2Zf1/draw-SQL-coronatime-export-2023-04-26.png)
