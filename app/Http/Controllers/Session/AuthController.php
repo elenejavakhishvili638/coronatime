@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Session;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -22,7 +23,9 @@ class AuthController extends Controller
 
         $remember = request()->has('remember');
 
-        if (auth()->attempt($attributes, $remember)) {
+        $user = User::where('email', $attributes['username'])->orWhere('username', $attributes['username'])->first();
+
+        if ($user && auth()->attempt(['email' => $user->email, 'password' => $attributes['password']], $remember)) {
             session()->regenerate();
             return redirect('worldwide-statistics');
         }
