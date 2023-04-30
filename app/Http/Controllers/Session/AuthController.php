@@ -12,10 +12,6 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function create(): View
-    {
-        return view('sessions.create');
-    }
 
     public function login(LoginRequest $request): RedirectResponse
     {
@@ -37,6 +33,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect("/");
+        return redirect(route('login'));
     }
 }

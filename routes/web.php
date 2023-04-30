@@ -23,14 +23,14 @@ Route::post('/lang', [LanguageController::class, 'switchLang'])->name('setLangua
 
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/', 'create')->middleware('guest')->name('login');
+    Route::view('/', 'sessions.create')->middleware('guest')->name('login');
     Route::post('/', 'login')->middleware('guest')->name('login.store');
     Route::post('logout', 'logout')->middleware('auth')->name('login.destroy');
 });
 
 Route::middleware('guest')->group(function () {
     Route::controller(RegistrationController::class)->group(function () {
-        Route::get('register',  'create')->name('register.create');
+        Route::view('register', 'register.create')->name('register.create');
         Route::post('register',  'store')->name('register.store');
     });
 });
@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('guest')->group(function () {
     Route::controller(PasswordResetController::class)->group(function () {
-        Route::get('/forgot-password', 'showRequest')->name('password.request');
+        Route::view('/forgot-password', 'resetPassword.request')->name('password.request');
         Route::post('/forgot-password', 'storeEmail')->name('password.email');
         Route::get('/reset-password/{token}', 'showReset')->name('password.reset');
         Route::post('/reset-password', 'update')->name('password.update');

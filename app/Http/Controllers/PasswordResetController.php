@@ -17,10 +17,6 @@ use Illuminate\Http\RedirectResponse;
 
 class PasswordResetController extends Controller
 {
-    public function showRequest(): View
-    {
-        return view('resetPassword.request');
-    }
 
     public function storeEmail(ResetPasswordEmailRequest $request): RedirectResponse
     {
