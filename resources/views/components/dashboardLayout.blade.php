@@ -28,18 +28,22 @@
                             </svg>
                         </div>
                         <div x-show="show"
-                            class="top-8 right-1 pt-8 pb-8 pr-16 pl-16 absolute mt-2 z-50 overflow-auto border bg-slate-100 rounded-sm"
-                            style="dispaly: none">
-                            <div class="md:block lg:pr-16 lg:border-r lg:border-gray ml-16">
-                                <p class="font-bold text-base">{{ auth()->user()->username }}</p>
-                            </div>
-                            <div class="lg:ml-8">
-                                <a href="#" x-data="{}"
-                                    @click.prevent="document.querySelector('#logout-form').submit()" class="">
-                                    {{ __('login.logout') }}</a>
-                                <form id="logout-form" method="POST" action="/logout" class="hidden">
-                                    @csrf
-                                </form>
+                            class=" top-6 absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white
+                            shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            <div class="p-8" role="none">
+                                <div
+                                    class=" pb-8 mb-8 md:block lg:pr-16 lg:border-r lg:border-gray border-b border-gray">
+                                    <p class="font-bold text-base">{{ auth()->user()->username }}</p>
+                                </div>
+                                <div>
+                                    <a href="#" x-data="{}"
+                                        @click.prevent="document.querySelector('#logout-form').submit()" class="">
+                                        {{ __('login.logout') }}</a>
+                                    <form id="logout-form" method="POST" action="/logout" class="hidden">
+                                        @csrf
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
