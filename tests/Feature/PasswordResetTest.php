@@ -65,7 +65,7 @@ class PasswordResetTest extends TestCase
 
         $mailMessage = $notification->toMail($notifiable);
 
-        $this->assertEquals('Verify your email address', $mailMessage->subject);
+        $this->assertEquals('Recover password', $mailMessage->subject);
 
         $renderedMailMessage = $mailMessage->render();
         $this->assertStringContainsString($sampleUrl, $renderedMailMessage);
