@@ -30,7 +30,7 @@ class AuthController extends Controller
             return redirect('worldwide-statistics');
         }
 
-        throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
+        throw ValidationException::withMessages(['password' => __('validation.custom.invalid_password', ['attribute' => __('validation.attributes.password')])]);
     }
 
     public function logout(): RedirectResponse
