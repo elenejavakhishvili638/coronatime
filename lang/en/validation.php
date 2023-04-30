@@ -171,6 +171,7 @@ return [
 
     'custom' => [
         'invalid_username' => 'The :attribute is invalid.',
+        'invalid_email' => 'The :attribute is incorrect.'
     ],
 
     /*

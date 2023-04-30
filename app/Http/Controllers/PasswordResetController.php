@@ -28,10 +28,6 @@ class PasswordResetController extends Controller
 
         $user = User::where('email', $attributes['email'])->first();
 
-        if (!$user) {
-            return back()->withErrors(['email' => trans('error')]);
-        }
-
         $token = app('auth.password.broker')->createToken($user);
         $url = url('/reset-password/' . $token . '?email=' . $attributes['email']);
         $user->notify(new ResetPasswordNotification($url));

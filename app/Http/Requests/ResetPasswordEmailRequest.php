@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ResetPasswordEmailRequest extends FormRequest
@@ -22,7 +23,11 @@ class ResetPasswordEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email']
+            'email' => ['required', 'email',  function ($attribute, $value, $fail) {
+                if (!User::where('email', $value)->exists()) {
+                    $fail(__('validation.custom.invalid_email', ['attribute' => __('validation.attributes.email')]));
+                }
+            },]
         ];
     }
 }

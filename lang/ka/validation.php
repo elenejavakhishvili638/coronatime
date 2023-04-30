@@ -21,5 +21,6 @@ return [
 
     'custom' => [
         'invalid_username' => ':attribute ველი არასწორია.',
+        'invalid_email' => ':attribute ველი არასწორია.'
     ],
 ];
