@@ -43,10 +43,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block pr-16 border-r border-gray ml-16">
+                    <div class="hidden lg:block pr-16 border-r border-gray ml-16">
                         <p class="font-bold text-base">{{ auth()->user()->username }}</p>
                     </div>
-                    <div class="ml-8 hidden md:block">
+                    <div class="ml-8 hidden lg:block">
                         <a href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()" class="">
                             {{ __('login.logout') }}</a>
