@@ -14,21 +14,21 @@
     <div
         class="lg:rounded-t-lg mt-24 lg:mr-108 lg:ml-108 lg:h-603  mb-56 flex flex-col overflow-x-auto lg:overflow-y-scroll lg:scrollbar-custom lg:shadow-statistics">
         <table class="min-w-full text-left text-sm font-light ">
-            <thead class="text-xs font-semibold p-18 items-center bg-gr">
+            <thead class="text-xs font-semibold items-center bg-gr">
                 <tr>
-                    <th scope="col" class="p-18">
+                    <th scope="col" class="pl-18 pt-18 pb-18">
                         <x-property name="name" property="{{ __('dashboard.location') }}" asc="asc"
                             desc="desc" />
                     </th>
-                    <th scope="col" class="p-18">
+                    <th scope="col" class="pl-18">
                         <x-property name="confirmed" property="{{ __('dashboard.new_cases') }}" asc="desc"
                             desc="asc" />
                     </th>
-                    <th scope="col" class="p-18">
+                    <th scope="col" class="pl-18">
                         <x-property name="deaths" property="{{ __('dashboard.deaths') }}" asc="desc"
                             desc="asc" />
                     </th>
-                    <th scope="col" class="p-18">
+                    <th scope="col" class="pl-18">
                         <x-property name="recovered" property="{{ __('dashboard.recovered') }}" asc="desc"
                             desc="asc" />
                     </th>

@@ -172,9 +172,17 @@ return [
     'custom' => [
         'invalid_username' => 'The :attribute is invalid.',
         'invalid_email' => 'The :attribute is incorrect.',
-        'invalid_password' => 'The provided :attribute is incorrect.'
+        'invalid_password' => 'The provided :attribute is incorrect.',
     ],
 
+
+    // return [
+    //     'email' => ['required', 'email',  function ($attribute, $value, $fail) {
+    //         if (!User::where('email', $value)->exists()) {
+    //             $fail(__('validation.custom.invalid_email', ['attribute' => __('validation.attributes.email')]));
+    //         }
+    //     },]
+    // ];
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
