@@ -1,7 +1,9 @@
 @props(['property', 'name', 'asc', 'desc'])
 
 <div class="flex items-center">
-    <p class="mr-3 break-words lg:max-w-150 max-w-77">{{ $property }}</p>
+    <p
+        class="{{ App::getLocale() === 'ka' ? 'text-[0.5rem]' : 'text-sm' }} lg:text-xs mr-3 break-words lg:max-w-150 max-w-77">
+        {{ $property }}</p>
     <div class="flex flex-col ml-3">
         <!-- Up icon -->
         <a href="{{ route('country.show', ['search' => request('search'), 'sort_by' => $name, 'sort_order' => $asc]) }}">

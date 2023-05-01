@@ -35,7 +35,7 @@
                 </tr>
             </thead>
 
-            <tbody class="border-b border-gr ">
+            <tbody class="lg:text-xs border-b border-gr {{ App::getLocale() === 'ka' ? 'text-[0.7rem]' : 'text-sm' }}">
                 <tr class="w-85 border-b border-gr ">
                     <td class="pt-16 pb-16 pl-18">{{ __('dashboard.worldwide') }}</td>
                     <td class="pt-16 pb-16 pl-18">{{ $sumConfirmed }}</td>
