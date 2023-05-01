@@ -10,11 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
 {
-    protected $redirectTo = '/';
     public function show(Request $request): mixed
     {
         return $request->user()->hasVerifiedEmail()
-            ? redirect($this->redirectPath())
+            ? redirect(route('login'))
             : view('verifyEmail.confirmEmail');
     }
 
@@ -24,10 +23,5 @@ class VerificationController extends Controller
 
         auth()->logout();
         return redirect()->route('verifyEmail.successful');
-    }
-
-    protected function redirectPath(): string
-    {
-        return '/';
     }
 }

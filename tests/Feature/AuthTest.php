@@ -136,7 +136,7 @@ class AuthTest extends TestCase
         ]);
 
 
-        $response->assertSessionHasErrors('email', 'Your provided credential could not be verified');
+        $response->assertSessionHasErrors('password', 'The provided password is incorrect.');
 
         $response->assertSessionDoesntHaveErrors(['username']);
     }

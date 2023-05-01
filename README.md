@@ -12,14 +12,17 @@ This Laravel project provides an interactive COVID-19 dashboard for users to vie
 - [Database diagram](#database-diagram)
 
 ## Prerequisites
-- PHP@7.2 and up
-- MYSQL@8 and up
-- npm@6 and up
-- composer@2 and up
+- PHP@ 8.2.5
+- MYSQL@ 8.0.32
+- npm@9.5.0
+- composer@2.6
+- tailwind@3.3.1
 
 ## Tech stack
-- [Laravel@6.x](https://laravel.com/docs/6.x) - back-end framework
-- [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
+- [Laravel@10.x](https://laravel.com/docs/10.x) - Back-end framework
+- [Spatie Translatable](https://github.com/spatie/laravel-translatable) - Package for translation
+- [tailwindcss](https://tailwindcss.com/docs/installation) - CSS framework
+- [tailwind-scrollbar](https://github.com/adoxography/tailwind-scrollbar) - Scrollbar Plugin for Tailwind CSS 
 
 ## Getting started
 
@@ -111,3 +114,4 @@ npm run  dev
 ## Database diagram
 
 ![diagram](https://i.ibb.co/4ZS2Zf1/draw-SQL-coronatime-export-2023-04-26.png)
+See the [Diagram](https://drawsql.app/teams/elene/diagrams/coronatime)

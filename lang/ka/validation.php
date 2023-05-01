@@ -18,8 +18,11 @@ return [
     'same' => ':attribute ველი უნდა ემთხვეოდეს :other ზედა ველს.',
     'confirmed' => ':attribute ველი არ ემთხვევა ველს.',
     'unique' => ':attribute ეს ველი უკვე გამოყენებულია.',
+    'exists' => ':attribute ველი არასწორია.',
 
     'custom' => [
         'invalid_username' => ':attribute ველი არასწორია.',
+        'invalid_email' => ':attribute ველი არასწორია.',
+        'invalid_password' => ':attribute ველი არასწორია.'
     ],
 ];

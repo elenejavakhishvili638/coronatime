@@ -13,11 +13,6 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
-    public function create(): View
-    {
-        return view('register.create');
-    }
-
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $attributes = $request->validated();

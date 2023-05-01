@@ -36,7 +36,7 @@ class ResetPasswordNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Verify your email address')
+            ->subject('Recover password')
             ->markdown('emails.reset-password', ['url' => $this->url]);
     }
 
@@ -45,10 +45,4 @@ class ResetPasswordNotification extends Notification
      *
      * @return array<string, mixed>
      */
-    // public function toArray(object $notifiable): array
-    // {
-    //     return [
-    //         //
-    //     ];
-    // }
 }

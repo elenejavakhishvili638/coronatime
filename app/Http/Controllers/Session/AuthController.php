@@ -12,10 +12,6 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function create(): View
-    {
-        return view('sessions.create');
-    }
 
     public function login(LoginRequest $request): RedirectResponse
     {
@@ -30,13 +26,13 @@ class AuthController extends Controller
             return redirect('worldwide-statistics');
         }
 
-        throw ValidationException::withMessages(['email' => 'Your provided credential could not be verified']);
+        throw ValidationException::withMessages(['password' => __('validation.custom.invalid_password', ['attribute' => __('validation.attributes.password')])]);
     }
 
     public function logout(): RedirectResponse
     {
         auth()->logout();
 
-        return redirect("/");
+        return redirect(route('login'));
     }
 }
